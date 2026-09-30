@@ -358,15 +358,26 @@ body {
   transform: scale(1.04);
 }
 
-.musical-note-img {
-  font-size: 1.4rem;
-  font-weight: bold;
-  height: 26px;
+.musical-figures-row {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--text-primary);
+  gap: 0.15rem;
+  min-height: 28px;
+  height: 28px;
   user-select: none;
+}
+
+.note-figure {
+  font-family: 'Segoe UI Symbol', 'Apple Symbols', 'Arial Unicode MS', SYSTEM-UI, sans-serif;
+  font-size: 1.4rem;
+  font-weight: normal; /* Faux bold ruins unicode musical instruments crispness */
+  color: var(--text-primary);
+  line-height: 1;
+  text-align: center;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 /* Authentic Groove_Pocket 4-Quadrant Circle SVG */
@@ -476,9 +487,13 @@ body {
     height: 50px;
   }
 
-  .musical-note-img {
-    font-size: 1.25rem;
+  .note-figure {
+    font-size: 1.1rem;
+  }
+
+  .musical-figures-row {
     height: 24px;
+    min-height: 24px;
   }
 }
 
@@ -607,9 +622,13 @@ body {
     height: 48px;
   }
 
-  .musical-note-img {
-    font-size: 1.3rem;
+  .note-figure {
+    font-size: 1.1rem;
+  }
+
+  .musical-figures-row {
     height: 28px;
+    min-height: 28px;
   }
 
   .beat-card {
@@ -733,9 +752,13 @@ body {
     height: 40px;
   }
 
-  .musical-note-img {
-    font-size: 1.1rem;
+  .note-figure {
+    font-size: 0.95rem;
+  }
+
+  .musical-figures-row {
     height: 22px;
+    min-height: 22px;
   }
 
   .beat-card {
@@ -823,9 +846,13 @@ body {
     height: 44px;
   }
 
-  .musical-note-img {
-    font-size: 1.2rem;
+  .note-figure {
+    font-size: 1.05rem;
+  }
+
+  .musical-figures-row {
     height: 24px;
+    min-height: 24px;
   }
 
   .sheet-footer {
@@ -840,9 +867,13 @@ body {
     height: 34px;
   }
 
-  .musical-note-img {
-    font-size: 0.95rem;
+  .note-figure {
+    font-size: 0.8rem;
+  }
+
+  .musical-figures-row {
     height: 20px;
+    min-height: 20px;
   }
 
   .row-measure {
