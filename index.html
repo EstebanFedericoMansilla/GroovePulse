@@ -109,6 +109,39 @@
         <span class="legend-item"><span class="quad-dot q4"></span> Cuadrante 4: Semicorchea (a)</span>
       </div>
       <div class="footer-tip">💡 Observa el puntero láser que sigue el ritmo de izquierda a derecha por cada fila.</div>
+
+      <!-- Support trigger. CSS-only toggle: the checkbox state drives the modal below. -->
+      <input type="checkbox" id="chkDonate" class="donate-toggle" aria-label="Abrir opciones de apoyo">
+      <label for="chkDonate" class="donate-btn" title="Apoyar este proyecto">
+        <svg class="donate-btn-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 21s-7.5-4.6-9.4-9A5.3 5.3 0 0 1 12 6.6 5.3 5.3 0 0 1 21.4 12c-1.9 4.4-9.4 9-9.4 9z"/>
+        </svg>
+        <span>Apoyar</span>
+      </label>
+
+      <!-- Support Modal (toggled by #chkDonate, no JS required).
+           Kept inside <footer> so it is a sibling of #chkDonate:
+           .donate-toggle:checked ~ .donate-modal depends on that. -->
+      <div class="donate-modal" role="dialog" aria-modal="true" aria-labelledby="donateTitle">
+        <label for="chkDonate" class="donate-backdrop"></label>
+        <div class="donate-panel">
+          <h3 id="donateTitle">Apoyá GroovePulse</h3>
+          <p class="donate-sub">Esta herramienta es gratuita y sin publicidad. Si te está sirviendo para practicar, podés ayudar a mantenerla viva.</p>
+
+          <div class="donate-options">
+            <a class="donate-option donate-mp" href="https://www.mercadopago.com.ar/esteban.145.royo.mp" target="_blank" rel="noopener noreferrer">
+              <span class="donate-option-name">Mercado Pago</span>
+              <span class="donate-option-user">esteban.145.royo.mp</span>
+            </a>
+            <a class="donate-option donate-pp" href="https://paypal.me/Estebanfederico" target="_blank" rel="noopener noreferrer">
+              <span class="donate-option-name">PayPal</span>
+              <span class="donate-option-user">paypal.me/Estebanfederico</span>
+            </a>
+          </div>
+
+          <label for="chkDonate" class="donate-close">Cerrar</label>
+        </div>
+      </div>
     </footer>
   </div>
 

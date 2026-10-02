@@ -439,6 +439,118 @@ body {
 
 .footer-tip { color: var(--accent-gold); font-weight: 600; }
 
+/* Support Modal (CSS-only, toggled by #chkDonate) */
+.donate-toggle {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.donate-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: rgba(255, 183, 3, 0.15);
+  color: var(--accent-gold);
+  border: 1px solid rgba(255, 183, 3, 0.3);
+  border-radius: 8px;
+  padding: 0.3rem 0.7rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+.donate-btn:hover { background: rgba(255, 183, 3, 0.28); transform: translateY(-1px); }
+.donate-btn-icon { width: 13px; height: 13px; fill: currentColor; }
+.donate-toggle:focus-visible + .donate-btn { outline: 2px solid var(--accent-primary); outline-offset: 2px; }
+
+.donate-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.22s ease, visibility 0.22s ease;
+}
+.donate-toggle:checked ~ .donate-modal { opacity: 1; visibility: visible; }
+
+.donate-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  cursor: pointer;
+}
+
+.donate-panel {
+  position: relative;
+  width: 100%;
+  max-width: 380px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 1.5rem 1.25rem 1.1rem;
+  background: var(--bg-header);
+  border: 1px solid var(--border-card);
+  border-radius: 14px;
+  box-shadow: var(--shadow-sheet);
+  text-align: center;
+  transform: translateY(-8px) scale(0.97);
+  transition: transform 0.22s ease;
+}
+.donate-toggle:checked ~ .donate-modal .donate-panel { transform: translateY(0) scale(1); }
+
+.donate-panel h3 {
+  font-size: 1.05rem;
+  font-weight: 800;
+  background: linear-gradient(90deg, var(--accent-primary), var(--accent-gold));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.donate-sub { font-size: 0.78rem; line-height: 1.45; color: var(--text-muted); }
+
+.donate-options { display: flex; flex-direction: column; gap: 0.55rem; width: 100%; }
+
+.donate-option {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  padding: 0.6rem 0.9rem;
+  border-radius: 10px;
+  border: 1px solid var(--border-card);
+  background: var(--bg-card);
+  text-decoration: none;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+.donate-option:hover { transform: translateY(-2px); border-color: var(--accent-gold); }
+.donate-option:focus-visible { outline: 2px solid var(--accent-primary); outline-offset: 2px; }
+
+.donate-option-name { font-size: 0.85rem; font-weight: 800; color: var(--text-primary); }
+.donate-option-user { font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; color: var(--text-muted); }
+
+.donate-mp .donate-option-name { color: #00a1e0; }
+.donate-pp .donate-option-name { color: #0070ba; }
+:root[data-theme="dark"] .donate-mp .donate-option-name { color: #4fc3f7; }
+:root[data-theme="dark"] .donate-pp .donate-option-name { color: #4d9de0; }
+
+.donate-close {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 0.25rem 0.6rem;
+  border-radius: 6px;
+}
+.donate-close:hover { color: var(--text-primary); }
+
 /* ==========================================================================
    MOBILE RESPONSIVE STYLES
    ========================================================================== */
@@ -668,6 +780,16 @@ body {
     font-size: 0.7rem;
   }
 
+  .donate-btn {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.72rem;
+  }
+
+  .donate-panel {
+    max-width: 320px;
+    padding: 1.2rem 1rem 0.9rem;
+  }
+
   .level-btn {
     padding: 0.3rem 0.5rem;
     font-size: 0.72rem;
@@ -796,6 +918,15 @@ body {
     font-size: 0.6rem;
   }
 
+  .donate-btn {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.65rem;
+  }
+
+  .donate-panel h3 { font-size: 0.95rem; }
+  .donate-sub { font-size: 0.7rem; }
+  .donate-option { padding: 0.5rem 0.75rem; }
+
   .level-btn {
     padding: 0.25rem 0.4rem;
     font-size: 0.65rem;
@@ -921,5 +1052,9 @@ body {
 
   .toggle-switch {
     min-height: 32px;
+  }
+
+  .donate-btn {
+    min-height: 34px;
   }
 }
