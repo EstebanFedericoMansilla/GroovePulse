@@ -492,6 +492,8 @@ body {
   position: relative;
   width: 100%;
   max-width: 380px;
+  max-height: calc(100vh - 2rem);
+  overflow-y: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -522,19 +524,59 @@ body {
 .donate-option {
   display: flex;
   flex-direction: column;
-  gap: 0.1rem;
-  padding: 0.6rem 0.9rem;
+  gap: 0.35rem;
+  padding: 0.7rem 0.9rem;
   border-radius: 10px;
   border: 1px solid var(--border-card);
   background: var(--bg-card);
   text-decoration: none;
+  text-align: left;
   transition: transform 0.2s ease, border-color 0.2s ease;
 }
 .donate-option:hover { transform: translateY(-2px); border-color: var(--accent-gold); }
-.donate-option:focus-visible { outline: 2px solid var(--accent-primary); outline-offset: 2px; }
 
+.donate-head { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; }
 .donate-option-name { font-size: 0.85rem; font-weight: 800; color: var(--text-primary); }
 .donate-option-user { font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; color: var(--text-muted); }
+
+.donate-badge {
+  font-size: 0.55rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.15rem 0.4rem;
+  border-radius: 5px;
+  color: var(--text-muted);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border-card);
+  white-space: nowrap;
+}
+
+.donate-actions { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+
+.donate-act {
+  flex: 1 1 auto;
+  min-width: 7rem;
+  font-family: inherit;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-card);
+  border-radius: 7px;
+  padding: 0.4rem 0.55rem;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease;
+}
+.donate-act:hover { background: rgba(255, 183, 3, 0.16); border-color: var(--accent-gold); color: var(--accent-gold); }
+.donate-act:focus-visible { outline: 2px solid var(--accent-primary); outline-offset: 2px; }
+.donate-act:disabled { cursor: default; opacity: 0.85; }
+.donate-act.is-copied { color: var(--accent-green); border-color: var(--accent-green); background: rgba(52, 199, 89, 0.14); }
+
+.donate-note { margin: 0.1rem 0 0; font-size: 0.66rem; line-height: 1.45; color: var(--text-muted); }
+.donate-note strong { color: var(--text-primary); font-weight: 700; }
 
 .donate-mp .donate-option-name { color: #00a1e0; }
 .donate-pp .donate-option-name { color: #0070ba; }
