@@ -5,7 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GroovePulse - Hoja de Lectura Rítmica (Estilo Groove_Pocket)</title>
   <meta name="description" content="Plataforma de lectura rítmica por subdivisiones circulares en 4/4 inspirada en Groove_Pocket. Guía visual con puntero interactivo y audio sintetizado.">
-  
+
+  <!-- PWA & Mobile Icons -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#0b0d17">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="apple-touch-icon" href="icon-192x192.png">
+  <link rel="icon" type="image/png" href="icon-192x192.png">
+
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -65,10 +74,63 @@
           <button class="level-btn" data-level="advanced">Avanzado</button>
         </div>
 
+        <button id="btnInstallApp" class="install-btn" title="Instalar GroovePulse en tu pantalla de inicio">
+          <span class="btn-icon">⬇</span> <span class="install-btn-label">Instalar App</span>
+        </button>
+
         <button id="btnThemeToggle" class="theme-toggle" title="Cambiar Tema (Claro/Oscuro)">
           <span id="themeIcon">🌙</span>
         </button>
       </div>
+
+      <script>
+        // PWA Installation Logic
+        let deferredPrompt;
+        const btnInstallApp = document.getElementById('btnInstallApp');
+
+        const isIos = () => {
+          const userAgent = window.navigator.userAgent.toLowerCase();
+          return /iphone|ipad|ipod/.test(userAgent);
+        };
+
+        const isInStandaloneMode = () => ('standalone' in window.navigator) && (window.navigator.standalone);
+
+        if (isIos() && !isInStandaloneMode()) {
+          btnInstallApp.addEventListener('click', () => {
+            alert('Para instalar en iPhone: Toca el botón "Compartir" (ícono del cuadrado con la flecha) y luego selecciona "Agregar a inicio".');
+          });
+        } else {
+          btnInstallApp.addEventListener('click', async () => {
+            if (deferredPrompt) {
+              deferredPrompt.prompt();
+              const { outcome } = await deferredPrompt.userChoice;
+              deferredPrompt = null;
+              btnInstallApp.classList.add('hidden');
+            } else {
+              alert('Buscá la opción "Instalar aplicación" o "Agregar a la pantalla de inicio" en el menú de tu navegador.');
+            }
+          });
+        }
+
+        window.addEventListener('beforeinstallprompt', (e) => {
+          e.preventDefault();
+          deferredPrompt = e;
+        });
+
+        window.addEventListener('appinstalled', () => {
+          btnInstallApp.classList.add('hidden');
+        });
+
+        if ('serviceWorker' in navigator) {
+          window.addEventListener('load', function () {
+            navigator.serviceWorker.register('sw.js').then(function (registration) {
+              console.log('SW ok');
+            }, function (err) {
+              console.log('SW fail', err);
+            });
+          });
+        }
+      </script>
     </header>
 
     <!-- Full-Screen Practice Sheet Stage (No Scrolling Required!) -->

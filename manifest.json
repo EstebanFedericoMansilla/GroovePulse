@@ -1,0 +1,46 @@
+{
+  "name": "GroovePulse | Hoja de Lectura Rítmica",
+  "short_name": "GroovePulse",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0b0d17",
+  "theme_color": "#0b0d17",
+  "description": "Hoja de práctica rítmica en 4/4 con subdivisiones circulares, puntero láser interactivo y audio sintetizado. Estilo Groove_Pocket.",
+  "categories": ["music", "education"],
+  "icons": [
+    {
+      "src": "icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Hoja de práctica 4/4",
+      "short_name": "Practicar",
+      "description": "Abrir la hoja de lectura rítmica directamente",
+      "url": "./index.html",
+      "icons": [
+        {
+          "src": "icon-192x192.png",
+          "sizes": "192x192"
+        }
+      ]
+    }
+  ]
+}
