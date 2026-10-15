@@ -281,7 +281,7 @@ body {
   height: 24px;
   pointer-events: none;
   z-index: 100;
-  transition: top 0.12s ease-out, left 0.12s ease-out;
+  transition: top 0.06s ease-out, left 0.06s ease-out;
   transform: translate(-50%, -50%);
 }
 
@@ -320,7 +320,7 @@ body {
   border-radius: 10px;
   padding: 0.2rem 0.8rem;
   position: relative;
-  transition: all 0.2s ease;
+  transition: background 0.1s ease, border-color 0.1s ease;
 }
 
 .row-measure.active-row {
@@ -350,7 +350,7 @@ body {
   padding: 0.1rem 0.3rem;
   border-radius: 8px;
   position: relative;
-  transition: all 0.15s ease;
+  transition: background 0.08s ease, transform 0.08s ease;
 }
 
 .beat-card.active-beat {
@@ -391,7 +391,7 @@ body {
   fill: var(--slice-off);
   stroke: var(--circle-bg);
   stroke-width: 2.5px;
-  transition: fill 0.1s ease, transform 0.1s ease;
+  transition: fill 0.05s ease, transform 0.05s ease;
 }
 
 .quad-slice.active-slice {

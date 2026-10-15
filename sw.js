@@ -1,4 +1,4 @@
-const CACHE_NAME = 'groovepulse-v2';
+const CACHE_NAME = 'groovepulse-v3';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
