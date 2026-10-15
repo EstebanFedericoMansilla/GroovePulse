@@ -66,6 +66,15 @@
         <button id="btnTapTempo" class="btn-tap" title="Toca al ritmo para medir BPM">TAP</button>
       </div>
 
+      <!-- Latency Adjustment (for mobile calibration) -->
+      <div class="header-latency">
+        <div class="latency-box">
+          <span class="latency-label">LATENCIA</span>
+          <span id="latencyBadge" class="latency-text">0 ms</span>
+        </div>
+        <input type="range" id="latencySlider" min="0" max="200" value="0" step="5" title="Ajustar latencia visual (ms)">
+      </div>
+
       <!-- Options -->
       <div class="header-options">
         <div class="level-selector" id="difficultyGroup">
